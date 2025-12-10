@@ -3,11 +3,7 @@ using System.Text.Json.Serialization;
 
 public static class LoadData
 {
-    private static string customersPath = "JSONData/customers.json";
-    private static string packagesPath = "JSONData/packages.json";
-    private static string couriersPath = "JSONData/couriers.json";
-
-    public static List<Customer> LoadCustomers()
+    public static List<Customer> LoadCustomers(string customersPath)
     {
         string json = File.ReadAllText(customersPath);
         
@@ -25,7 +21,7 @@ public static class LoadData
         return customers;
     }
 
-    public static List<Package> LoadPackages()
+    public static List<Package> LoadPackages(string packagesPath)
     {
         string json = File.ReadAllText(packagesPath);
         var options = new JsonSerializerOptions 
@@ -42,7 +38,7 @@ public static class LoadData
         return packages;
     }
 
-    public static List<Courier> LoadCouriers()
+    public static List<Courier> LoadCouriers(string couriersPath)
     {
         string json = File.ReadAllText(couriersPath);
         var options = new JsonSerializerOptions 
