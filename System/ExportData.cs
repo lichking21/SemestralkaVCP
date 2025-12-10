@@ -40,8 +40,8 @@ public class ExportData
 
         foreach (var c in couriers)
         {
-            int delivered = c.DailyPackages.Count(p => p.Status == PackageStatus.Delivered);
-            int returned = c.DailyPackages.Count(p => p.Status == PackageStatus.Returned);
+            int delivered = c.DeliveredCount;
+            int returned = c.ReturnedCount;
 
             sw.WriteLine($"{c.Name};{delivered};{returned};{c.CollectedMoney}");
         }

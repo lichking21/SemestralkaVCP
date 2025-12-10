@@ -1,4 +1,4 @@
-public class DeliveryController
+public static class DeliveryController
 {
     private static int attempts = 3;
 
@@ -13,7 +13,7 @@ public class DeliveryController
         if (customer.IsAtHome)
         {
             courier.CollectedMoney += p.COD;
-            p.COD = 0;
+            courier.DeliveredCount++;
             p.Status = PackageStatus.Delivered;
 
             Console.WriteLine($"(DELIVERED!) Package{p.ID} status: {p.Status}");
@@ -26,12 +26,9 @@ public class DeliveryController
             Console.WriteLine($"(WASN'T DELIVERED) Package{p.ID} status: {p.Status}");
             return;
         }
-        else
-        {
-            p.Status = PackageStatus.Pending;
-            p.PickUpDeadline = DaySimulator.currDay.AddDays(7);
-            Console.WriteLine($"Will try tommorow Package{p.ID} status: {p.Status}");
-        }
+        p.Status = PackageStatus.Pending;
+        p.PickUpDeadline = DaySimulator.currDay.AddDays(1);
+        Console.WriteLine($"Will try tommorow Package{p.ID} status: {p.Status}");
     }
 
     public static void DistributePackages(List<Package> packages, List<Courier> couriers, List<Customer> customers)
@@ -49,7 +46,7 @@ public class DeliveryController
             var courier = couriers.FirstOrDefault(c => c.CanTake(p));
             if (courier == null)
             {
-                Console.WriteLine($"No courier who can take package {p.ID}");
+                Console.WriteLine($"No courier who can take package {p.ID}. Package will be skipped");
                 continue;
             }
 

@@ -8,6 +8,8 @@ public class Courier
     public int CollectedMoney { get; set; }
     public PackageSize MaxSize { get; set; }
     public List<Package> DailyPackages { get; set; } = new();
+    public int DeliveredCount { get; set; }
+    public int ReturnedCount { get; set; }
 
     [JsonIgnore] private int CurrentWeight = 0;
 

@@ -16,8 +16,7 @@
 
             DeliveryController.DistributePackages(packages, couriers, customers);
             
-            foreach(var customer in customers) 
-                DaySimulator.NextDay(packages, customer);
+            DaySimulator.PrepNextDay(packages, customers, couriers);
 
             foreach (var c in couriers)
                 c.ResetDay();
