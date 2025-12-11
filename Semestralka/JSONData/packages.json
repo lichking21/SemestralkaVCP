@@ -1,0 +1,62 @@
+[
+  {
+    "ID": 1,
+    "Weight": 2,
+    "Address": "Bokonbaeva",
+    "CustomerName": "Kotok",
+    "Size": 0,
+    "Status": 4,
+    "COD": 10,
+    "DeliveryAttempts": 0,
+    "LastAttemptDate": "0001-01-01T00:00:00",
+    "PickUpDeadline": "0001-01-01T00:00:00"
+  },
+  {
+    "ID": 2,
+    "Weight": 28,
+    "Address": "Manasa",
+    "CustomerName": "Alipe",
+    "Size": 2,
+    "Status": 4,
+    "COD": 20,
+    "DeliveryAttempts": 0,
+    "LastAttemptDate": "0001-01-01T00:00:00",
+    "PickUpDeadline": "0001-01-01T00:00:00"
+  },
+  {
+    "ID": 3,
+    "Weight": 4,
+    "Address": "DoBronx",
+    "CustomerName": "Charles",
+    "Size": 1,
+    "Status": 4,
+    "COD": 11,
+    "DeliveryAttempts": 0,
+    "LastAttemptDate": "0001-01-01T00:00:00",
+    "PickUpDeadline": "0001-01-01T00:00:00"
+  },
+  {
+    "ID": 3,
+    "Weight": 4,
+    "Address": "Chuy",
+    "CustomerName": "Charles",
+    "Size": 1,
+    "Status": 4,
+    "COD": 11,
+    "DeliveryAttempts": 0,
+    "LastAttemptDate": "0001-01-01T00:00:00",
+    "PickUpDeadline": "0001-01-01T00:00:00"
+  },
+  {
+    "ID": 4,
+    "Weight": 666,
+    "Address": "HUI",
+    "CustomerName": "legenda",
+    "Size": 0,
+    "Status": 4,
+    "COD": 90,
+    "DeliveryAttempts": 0,
+    "LastAttemptDate": "0001-01-01T00:00:00",
+    "PickUpDeadline": "0001-01-01T00:00:00"
+  }
+]

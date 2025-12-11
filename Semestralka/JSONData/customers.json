@@ -1,0 +1,27 @@
+[
+  {
+    "Name": "Kotok",
+    "Address": "Bokonbaeva",
+    "IsAtHome": true
+  },
+  {
+    "Name": "Alipe",
+    "Address": "Manasa",
+    "IsAtHome": true
+  },
+  {
+    "Name": "Charles",
+    "Address": "DoBronx",
+    "IsAtHome": false
+  },
+  {
+    "Name": "legenda",
+    "Address": "HUI",
+    "IsAtHome": true
+  },
+  {
+    "Name": "Charles",
+    "Address": "Chuy",
+    "IsAtHome": false
+  }
+]
