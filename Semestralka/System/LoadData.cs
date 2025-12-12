@@ -1,10 +1,21 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Microsoft.VisualBasic;
 
 namespace Semestalka
 {
     public static class LoadData
     {
+        List<Customer> customersdata;
+        List<Package> packagesdata;
+        List<Courier> couriersdata;
+        
+        public LoadData(string customersPath, string packagesPath, string couriersPath)
+        {
+            this.customersdata = this.LoadCustomers(customersPath);
+            this.packagesdata = this.LoadPackages(packagesPath);
+            this.couriersdata = this.LoadCouriers(couriersPath);
+        }
         public static List<Customer> LoadCustomers(string customersPath)
         {
             string json = File.ReadAllText(customersPath);

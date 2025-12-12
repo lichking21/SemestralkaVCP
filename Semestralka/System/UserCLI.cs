@@ -1,4 +1,10 @@
-public static class UserCLI
+using System.Diagnostics.Contracts;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
+
+namespace Semestalka
+{
+    public static class UserCLI
 {
     public static void AddPackageFromConsole(List<Package> packages, string packagesPath)
     {
@@ -76,4 +82,56 @@ public static class UserCLI
             Console.WriteLine($"Error saving customers: {ex.Message}");
         }
     }
+    
+    public static void execute(LoadData simData)
+    {
+        bool running = true;
+        while (running)
+        {
+            Console.WriteLine($"\nCurrent day: {DaySimulator.currDay.Date}");
+            Console.WriteLine("Choose action: (A)dd package, (C)add customer, (N)ext day, (E)xport & Exit");
+            Console.Write("Action: ");
+            var input = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(input)) continue;
+
+            switch (input.Trim().ToUpper())
+            {
+                case "A":
+                case "ADD":
+                    UserCLI.AddPackageFromConsole(simData.packages, packagesPath);
+                    break;
+
+                case "C":
+                case "CUSTOMER":
+                case "ADD-CUSTOMER":
+                    UserCLI.AddCustomerFromConsole(simData.customers, customersPath);
+                    break;
+
+                case "N":
+                case "NEXT":
+                case "ND":
+                    // Distribute packages for current day before advancing
+                    DeliveryController.DistributePackages(simData.packages, simData.couriers, simData.customers);
+                    // Advance to next day
+                    DaySimulator.PrepNextDay(simData.packages, simData.customers, simData.couriers);
+                    foreach (var c in simData.couriers)
+                        c.ResetDay();
+                    break;
+
+                case "E":
+                case "EXIT":
+                case "EXPORT":
+                    ExportData.ExportDelivered(simData.packages);
+                    ExportData.ExportReturned(simData.packages);
+                    ExportData.ExportCourierInfo(simData.couriers);
+                    running = false;
+                    break;
+
+                default:
+                    Console.WriteLine("Unknown action. Use A, C, N or E.");
+                    break;
+            }
+        }
+    }
+}
 }
